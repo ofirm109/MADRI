@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+</style>
+</head>
+<body>
+
+<h2 dir="rtl">חיפוש</h2>
+
+<input dir="rtl" type="text" id="myInput" onkeyup="myFunction()" placeholder="כתוב כאן את הפרק שתרצה לחפש" title="כתוב כאן את הפרק שתרצה לחפש">
+
+<ul id="myUL" dir="rtl">
+  <li><a href="#">הקדמה</a></li>
+  <li><a href="#">מונחים</a></li>
+  <li><a href="#">האגף - לבנת היסוד</a></li>
+  <li><a href="#">הבסיס הנורמטיבי לביקורת המדינה</a></li>
+  <li><a href="#">הבסיס הנורמטיבי לביקורת המדינה &gt חוקים והנחיות הנוגעים לביקורת המדינה</a></li>
+  <li><a href="#">הבסיס הנורמטיבי לביקורת המדינה &gt תקני הביקורת הבין-לאומיים</a></li>
+  <li><a href="#">מצפן ביקורת המדינה</a></li>
+  <li><a href="#">מצפן ביקורת המדינה &gt תפיסת ביקורת המדינה</a></li>
+  <li><a href="#">מצפן ביקורת המדינה &gt עקרון העצמאות ואי תלות של ביקורת המדינה</a></li>
+  <li><a href="#">מצפן ביקורת המדינה &gt גבולות הביקורת</a></li>
+  <li><a href="#">מצפן ביקורת המדינה &gt תפקידים נוספים של מבקר המדינה</a></li>
+    <li><a href="#">מצפן ביקורת המדינה &gt ביקורת המדינה ביחס לגופי ביקורת ובדיקה אחרים</a></li>
+      <li><a href="#">הגופים הנתונים לביקורת</a></li>
+      <li><a href="#">הקשר שבין מבקר המדינה לכנסת וועדותיה</a></li>
+      <li><a href="#">אתיקה מקצועית</a></li>
+</ul>
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
